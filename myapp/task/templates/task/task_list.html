@@ -1,0 +1,25 @@
+{% extends 'task/index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block body_content %}
+{% if taskList %}
+{% for item in taskList %}
+<!--        <div class="jumbotron">
+     <h1 class="display-4">{{ item.title }}</h1>
+     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+     <hr class="my-4">
+     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+   </div> -->
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text">{{ item.description }}</p>
+        <a href="{{ item.get_absolute_url }}" class="card-link">Открыть задачу</a>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}
